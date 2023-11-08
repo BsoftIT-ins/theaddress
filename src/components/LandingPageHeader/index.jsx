@@ -1,14 +1,21 @@
 import React from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import { Button, Img, List, Text } from "components";
 
 const LandingPageHeader = (props) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <header className={props.className}>
         <div className="sm:block flex md:flex-col flex-row md:gap-10 items-center justify-between w-full">
           <div className="header-row my-px">
-            <div className="flex flex-row gap-[11px] items-center justify-start">
+            <div
+              className="common-pointer flex flex-row gap-[11px] items-center justify-start"
+              onClick={() => navigate("/")}
+            >
               <Img className="h-10 w-10" src="images/img_home.svg" alt="home" />
               <Text
                 className="text-orange-A700 text-xl w-auto"
@@ -43,8 +50,9 @@ const LandingPageHeader = (props) => {
               </div>
               <div className="flex flex-row gap-1.5 items-start justify-start w-[77px]">
                 <Text
-                  className="text-base text-gray-900 w-auto"
+                  className="common-pointer text-base text-gray-900 w-auto"
                   size="txtManropeSemiBold16"
+                  onClick={props?.onClick1}
                 >
                   Listing
                 </Text>
@@ -56,8 +64,9 @@ const LandingPageHeader = (props) => {
               </div>
               <div className="flex flex-row gap-1.5 items-start justify-start w-[77px]">
                 <Text
-                  className="text-base text-gray-900 w-auto"
+                  className="common-pointer text-base text-gray-900 w-auto"
                   size="txtManropeSemiBold16"
+                  onClick={props?.onClick}
                 >
                   Agents
                 </Text>
